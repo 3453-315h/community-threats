@@ -1,0 +1,23 @@
+{
+    "threat": {
+        "category": "User-Defined",
+        "description": "Long-haul C2 over DNS for the persistence portion of Buhtrap Adversary Emulation",
+        "display_name": "Buhtrap-DNS",
+        "name": "Buhtrap-DNS",
+        "operating_system_name": "windows",
+        "script": {
+            "0": {
+                "conf": {
+                    "--domainname": "evil.com",
+                    "--heartbeat": 86400,
+                    "--jitter": 0,
+                    "--serverip": "127.0.0.1"
+                },
+                "module": "dns",
+                "type": "initialization",
+                "xrand": "650cbef7c442c041ff9de3f3ccf3459c"
+            }
+        },
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29"
+    }
+}
